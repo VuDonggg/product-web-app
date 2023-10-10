@@ -4,3 +4,8 @@
 *.xml
 *.class
 *.war
+/src/main/webapp/WEB-INF/views
+/target/classes
+/target/classes/com/pm05/product_web_app/controllers
+/target/classes/com/pm05/product_web_app/models
+/pom.xml
