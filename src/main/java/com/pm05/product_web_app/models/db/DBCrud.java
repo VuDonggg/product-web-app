@@ -95,4 +95,18 @@ public class DBCrud {
         }
 
     }
+
+    public static void deleteProduct(Connection conn, String code) {
+        String sql = "DELETE FROM product WHERE code = ?";
+
+        try {
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, code); // Đặt giá trị cho tham số trong câu lệnh SQL
+
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
