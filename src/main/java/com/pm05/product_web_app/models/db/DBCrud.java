@@ -30,18 +30,17 @@ public class DBCrud {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            try {
-                ps.close();
-                rs.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            // try {
+            // ps.close();
+            // rs.close();
+            // } catch (SQLException e) {
+            // e.printStackTrace();
+            // }
 
         }
 
         return productList;
     }
-
 
     public static void insertProduct(Connection conn, Product product) {
         String sqlString = "insert into product (CODE, NAME, PRICE)  values (?, ?, ?)";
@@ -58,10 +57,9 @@ public class DBCrud {
         }
     }
 
-    public static Product findProductByCode(Connection conn, String code){
+    public static Product findProductByCode(Connection conn, String code) {
         Product product = null;
         String sql = "SELECT code, name, price FROM product where code = ?";
-
 
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -69,7 +67,7 @@ public class DBCrud {
 
             ResultSet rs = ps.executeQuery();
 
-            while(rs.next()){
+            while (rs.next()) {
                 String name = rs.getString("name");
                 double price = rs.getDouble("price");
                 product = new Product(code, name, price);
@@ -82,9 +80,7 @@ public class DBCrud {
         return product;
     }
 
-
-    public static void updateProduct(Connection conn, Product product)
-    {
+    public static void updateProduct(Connection conn, Product product) {
         String sql = "update product set name = ?, price = ?      where code = ?";
 
         try {
@@ -98,8 +94,5 @@ public class DBCrud {
             e.printStackTrace();
         }
 
-        
     }
 }
-
-

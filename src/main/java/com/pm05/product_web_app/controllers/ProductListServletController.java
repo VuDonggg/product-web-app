@@ -14,20 +14,21 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 @WebServlet("/productList")
-public class ProductListServletController extends HttpServlet{
+public class ProductListServletController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Connection conn = null;
         List<Product> productList = null;
-        //ket noi csdl
+        // ket noi csdl
         conn = MySQLConnector.getMySQLConnection();
-        //lay danh sach san pham
+        // lay danh sach san pham
         productList = DBCrud.getAllProduct(conn);
-        //close connection
+        // close connection
         MySQLConnector.closeConnection(conn);
-        //dat danh sach sp vao request
+        // dat danh sach sp vao request
         req.setAttribute("plist", productList);
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/views/ProductListView.jsp");
@@ -36,8 +37,8 @@ public class ProductListServletController extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO Auto-generated method stub
+
         super.doPost(req, resp);
     }
-    
+
 }

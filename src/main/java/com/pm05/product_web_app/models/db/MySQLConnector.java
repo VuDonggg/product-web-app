@@ -10,7 +10,7 @@ public class MySQLConnector {
         String hostName = "localhost";
         String dbName = "product-db-pm05";
         String userName = "root";
-        String password = "12345678";
+        String password = "bnhl2310";
 
         return getMySQLConnection(hostName, dbName, userName, password);
 
@@ -34,9 +34,9 @@ public class MySQLConnector {
 
     }
 
-    public static void closeConnection(Connection conn){
+    public static void closeConnection(Connection conn) {
         try {
-            if(conn != null)
+            if (conn != null)
                 conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
