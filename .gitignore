@@ -1,0 +1,6 @@
+/target
+*.jar
+*.rar
+*.xml
+*.class
+*.war
